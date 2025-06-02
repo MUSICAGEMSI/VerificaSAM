@@ -63,7 +63,7 @@ export const experiences = [
     iconBg: "#161329",
     date: "Sep 2023 - Nov 2023",
     points: [
-      "Acquired hands-on knowledge of AWS Cloud Foundation, delving into cloud infrastructure, services, and deployment.",
+      "VerificaSAM",
       "also gaining a solid foundation in Machine Learning, covering topics like algorithms, data analysis, and model building.",
     ],
   },

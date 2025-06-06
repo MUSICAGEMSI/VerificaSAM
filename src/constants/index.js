@@ -55,44 +55,9 @@ export const technologies = [
   { name: "git", icon: git },
 ];
 
-import csv
-from collections import defaultdict
+import { experiences } from "../constants/experiences";
 
-csv_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTJqlG7xJhthlPfWhSWBGf6qtYP2uhfVTtPk6uJz2i3oCWbUTdU0rbLy7uWGSb8lQ/pub?gid=750632160&single=true&output=csv"
-
-import requests
-response = requests.get(csv_url)
-data = response.text.splitlines()
-reader = csv.DictReader(data)
-
-agrupado = defaultdict(list)
-for row in reader:
-    localidade = row["LOCALIDADE"]
-    linha = [
-        row["LOCALIDADE"],
-        row["INSTRUMENTO"],
-        row["CURSO"],
-        row["MATRICULADOS"],
-        row["INÍCIO"],
-        row["TÉRMINO"],
-        row["DIA"],
-        row["HORA"],
-        row["LANÇAMENTO PENDENTE"],
-        row["LANÇAMENTO INVÁLIDO"]
-    ]
-    agrupado[localidade].append(linha)
-
-print("export const aulas = [")
-for local, linhas in agrupado.items():
-    print("  {")
-    print(f'    title: "{local}",')
-    print('    subtitle: "LOCALIDADE | INSTRUMENTO | CURSO | MATRICULADOS | INÍCIO | TÉRMINO | DIA | HORA | LANÇAMENTO PENDENTE | LANÇAMENTO INVÁLIDO",')
-    print("    expand: [")
-    for l in linhas:
-        print(f"      {l},")
-    print("    ]")
-    print("  },")
-print("];")
+console.log(experiences); // ✅ dados importados da planilha em tempo de build
 
 export const experiences = [
   {
@@ -130,25 +95,6 @@ export const experiences = [
       "Leveraged 12 regression algorithms to attain precise outcomes in analyzing and predicting mental fitness levels across 150+ countries.",
     ],
   },
-];
-
-export const aulas = [
-  {
-    title: "Localidade 1",
-    subtitle: "LOCALIDADE | INSTRUMENTO | CURSO | MATRICULADOS | INÍCIO | TÉRMINO | DIA | HORA | LANÇAMENTO PENDENTE | LANÇAMENTO INVÁLIDO",
-    expand: [
-      ["Localidade 1", "Violão", "Curso Básico", "25", "01/03", "30/06", "Segunda", "08:00", "Sim", "Não"],
-      ["Localidade 1", "Piano", "Curso Avançado", "18", "01/03", "30/06", "Quarta", "10:00", "Não", "Não"]
-    ]
-  },
-  {
-    title: "Localidade 2",
-    subtitle: "LOCALIDADE | INSTRUMENTO | CURSO | MATRICULADOS | INÍCIO | TÉRMINO | DIA | HORA | LANÇAMENTO PENDENTE | LANÇAMENTO INVÁLIDO",
-    expand: [
-      ["Localidade 2", "Guitarra", "Curso Intermediário", "30", "05/03", "30/06", "Sexta", "14:00", "Sim", "Sim"]
-    ]
-  },
-  // ...adicione mais localidades conforme a planilha
 ];
 
 export const projects = [
@@ -226,3 +172,4 @@ export const projects = [
     source_code_link: "https://github.com/lohitkolluri/Image_to_Pencil_Sketch_App",
   },
 ];
+

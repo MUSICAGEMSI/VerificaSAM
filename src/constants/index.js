@@ -93,6 +93,25 @@ export const experiences = [
   },
 ];
 
+export const aulas = [
+  {
+    title: "Localidade 1",
+    subtitle: "LOCALIDADE | INSTRUMENTO | CURSO | MATRICULADOS | INÍCIO | TÉRMINO | DIA | HORA | LANÇAMENTO PENDENTE | LANÇAMENTO INVÁLIDO",
+    expand: [
+      ["Localidade 1", "Violão", "Curso Básico", "25", "01/03", "30/06", "Segunda", "08:00", "Sim", "Não"],
+      ["Localidade 1", "Piano", "Curso Avançado", "18", "01/03", "30/06", "Quarta", "10:00", "Não", "Não"]
+    ]
+  },
+  {
+    title: "Localidade 2",
+    subtitle: "LOCALIDADE | INSTRUMENTO | CURSO | MATRICULADOS | INÍCIO | TÉRMINO | DIA | HORA | LANÇAMENTO PENDENTE | LANÇAMENTO INVÁLIDO",
+    expand: [
+      ["Localidade 2", "Guitarra", "Curso Intermediário", "30", "05/03", "30/06", "Sexta", "14:00", "Sim", "Sim"]
+    ]
+  },
+  // ...adicione mais localidades conforme a planilha
+];
+
 export const projects = [
   {
     name: "WeatherPedia",

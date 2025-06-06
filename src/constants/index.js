@@ -55,6 +55,45 @@ export const technologies = [
   { name: "git", icon: git },
 ];
 
+import csv
+from collections import defaultdict
+
+csv_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTJqlG7xJhthlPfWhSWBGf6qtYP2uhfVTtPk6uJz2i3oCWbUTdU0rbLy7uWGSb8lQ/pub?gid=750632160&single=true&output=csv"
+
+import requests
+response = requests.get(csv_url)
+data = response.text.splitlines()
+reader = csv.DictReader(data)
+
+agrupado = defaultdict(list)
+for row in reader:
+    localidade = row["LOCALIDADE"]
+    linha = [
+        row["LOCALIDADE"],
+        row["INSTRUMENTO"],
+        row["CURSO"],
+        row["MATRICULADOS"],
+        row["INÍCIO"],
+        row["TÉRMINO"],
+        row["DIA"],
+        row["HORA"],
+        row["LANÇAMENTO PENDENTE"],
+        row["LANÇAMENTO INVÁLIDO"]
+    ]
+    agrupado[localidade].append(linha)
+
+print("export const aulas = [")
+for local, linhas in agrupado.items():
+    print("  {")
+    print(f'    title: "{local}",')
+    print('    subtitle: "LOCALIDADE | INSTRUMENTO | CURSO | MATRICULADOS | INÍCIO | TÉRMINO | DIA | HORA | LANÇAMENTO PENDENTE | LANÇAMENTO INVÁLIDO",')
+    print("    expand: [")
+    for l in linhas:
+        print(f"      {l},")
+    print("    ]")
+    print("  },")
+print("];")
+
 export const experiences = [
   {
     title: "AI/ML Intern",

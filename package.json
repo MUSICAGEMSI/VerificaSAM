@@ -1,41 +1,56 @@
 {
-  "name": "Portfolio-Website",
+  "name": "verificasam",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "yarn generate:experiences && vite build",
-    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "build": "npm run generate:experiences && vite build",
+    "generate:experiences": "node scripts/generateExperiences.js",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "generate:experiences": "node scripts/generateExperiences.js"
+    "clean": "rm -rf dist node_modules/.vite",
+    "prebuild": "npm run generate:experiences"
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
-    "@react-three/drei": "^9.88.2",
-    "@react-three/fiber": "^8.14.5",
-    "framer-motion": "^10.12.16",
-    "maath": "^0.10.4",
+    "@react-three/drei": "^9.88.13",
+    "@react-three/fiber": "^8.15.11",
+    "framer-motion": "^10.16.4",
+    "maath": "^0.10.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.10.1",
-    "react-router-dom": "^6.13.0",
-    "react-tilt": "^1.0.2",
+    "react-router-dom": "^6.8.1",
+    "react-tilt": "^0.1.4",
     "react-vertical-timeline-component": "^3.6.0",
-    "typewriter-effect": "^2.20.1"
+    "three": "^0.157.0"
   },
   "devDependencies": {
-    "@types/react": "^18.0.37",
-    "@types/react-dom": "^18.0.11",
-    "@vitejs/plugin-react": "^4.0.0",
-    "autoprefixer": "^10.4.14",
-    "eslint": "^8.0.0",
-    "eslint-plugin-react": "^7.26.0",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.55.0",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.3.4",
-    "postcss": "^8.4.24",
-    "tailwindcss": "^3.3.2",
-    "three": "^0.153.0",
-    "vite": "^4.3.9"
-  }
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.6",
+    "vite": "^5.0.8"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MUSICAGEMSI/VerificaSAM.git"
+  },
+  "keywords": [
+    "react",
+    "vite",
+    "three.js",
+    "portfolio"
+  ],
+  "author": "MUSICAGEMSI",
+  "license": "MIT"
 }
